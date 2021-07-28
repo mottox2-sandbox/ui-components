@@ -5,6 +5,7 @@ import { Button, useProvider } from "@ui-components/react";
 
 export default function Home() {
   const value = useProvider();
+  console.log(value);
   return (
     <div className={styles.container}>
       <Head>
