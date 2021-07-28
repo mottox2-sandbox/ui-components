@@ -2,14 +2,25 @@
   "name": "@ui-components/react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel --presets @babel/preset-react src --out-dir dist",
+    "watch": "babel --presets @babel/preset-react src --out-dir dist -w"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@ui-components/tokens": "^0.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-react": "^7.14.5"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
   }
 }
