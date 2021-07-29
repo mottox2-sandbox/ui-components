@@ -5,9 +5,16 @@ const defaultTheme = {
   colors,
 };
 
-const Context = React.createContext(null);
+type Theme = any;
+type ContextValue = {
+  theme: Theme;
+};
 
-export const Provider = (props) => {
+const Context = React.createContext<ContextValue>(null as any as ContextValue);
+
+export const Provider: React.FC<{
+  theme: Theme;
+}> = (props) => {
   const theme = props.theme || defaultTheme;
   return (
     <Context.Provider value={{ theme }}>{props.children}</Context.Provider>

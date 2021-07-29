@@ -1,7 +1,7 @@
 import React from "react";
 import { colors } from "@ui-components/tokens";
 
-export const Button = ({ children }) => {
+export const Button: React.FC = ({ children }) => {
   return (
     <button
       style={{

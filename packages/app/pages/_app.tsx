@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { Provider } from "@ui-components/react";
-import { colors } from "@ui-components/tokens";
+import { colors } from "../../tokens/src";
 
 const theme = {
   colors: {
