@@ -12,10 +12,11 @@ type ContextValue = {
 
 const Context = React.createContext<ContextValue>(null as any as ContextValue);
 
-export const Provider: React.FC<{
+export const ThemeProvider: React.FC<{
   theme: Theme;
 }> = (props) => {
   const theme = props.theme || defaultTheme;
+  // NOTE: ここらへんでCSS Reset
   return (
     <Context.Provider value={{ theme }}>{props.children}</Context.Provider>
   );

@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { Provider } from "@ui-components/react";
+import { ThemeProvider } from "@ui-components/react";
 import { colors } from "../../tokens/src";
 
 const theme = {
@@ -12,9 +12,9 @@ const theme = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider theme={theme}>
+    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
-    </Provider>
+    </ThemeProvider>
   );
 }
 
