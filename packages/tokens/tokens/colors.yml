@@ -1,0 +1,21 @@
+props:
+  primary:
+    value: "{!PRIMARY}"
+  black:
+    value: "{!BLACK}"
+  pink-700:
+    value: "{!PINK_700}"
+  pink-500:
+    value: "{!PINK_500}"
+  pink-300:
+    value: "{!PINK_300}"
+  pink-50:
+    value: "{!PINK_50}"
+  red:
+    value: "{!RED}"
+imports:
+  - ./aliases/colors.yml
+global:
+  type: color
+  category: color
+  primitive: true
