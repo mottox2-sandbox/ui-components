@@ -1,6 +1,7 @@
 import path from "path";
 import theo from "theo";
 import fsExtra from "fs-extra";
+import _ from "lodash";
 
 const { outputFile, readdir } = fsExtra;
 
@@ -30,7 +31,22 @@ export const convert = async (file, format) => {
   `
   );
 
-  const formats = ["prefix.scss", "common.js"];
+  // もしかして標準のmodule.jsでいいのかもしれない
+  theo.registerFormat("ts", (def) => {
+    return def
+      .get("props")
+      .map((prop) => {
+        // TODO: comment
+        const k = _.camelCase(prop.get("name"));
+        const v = JSON.stringify(prop.get("value"));
+        return `export const ${k} = ${v};`;
+      })
+      .flatten(1)
+      .toArray()
+      .join("\n");
+  });
+
+  const formats = ["prefix.scss", "ts"];
 
   const fileNames = (
     await readdir(path.join(__dirname, "../tokens"), {
@@ -50,32 +66,14 @@ export const convert = async (file, format) => {
       .join("\n")}`
   );
 
-  //   await outputFile(
-  //     path.join(__dirname, "../dist/index.js"),
-  //     `${fileNames
-  //       .map((fileName) => {
-  //         const name = fileName.replace(".yml", "");
-  //         return `const ${name} = require('./${name}');`;
-  //       })
-  //       .join("\n")}
-  // module.exports = {
-  // ${fileNames.map((fileName) => "  " + fileName.replace(".yml", "")).join(",\n")}
-  // }`
-  //   );
-
   await outputFile(
-    path.join(__dirname, "../dist/index.js"),
+    path.join(__dirname, "../dist/index.ts"),
     `${fileNames
       .map((fileName) => {
         const name = fileName.replace(".yml", "");
-        return `import ${name} from './${name}';`;
+        return `export * as ${name} from './${name}';`;
       })
-      .join("\n")}
-
-export default {
-${fileNames.map((fileName) => "  " + fileName.replace(".yml", "")).join(",\n")}
-}
-`
+      .join("\n")}`
   );
 
   for (let i = 0; i < formats.length; i++) {
