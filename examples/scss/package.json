@@ -1,0 +1,16 @@
+{
+  "name": "scss",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "sass index.scss dist/index.css",
+    "build:watch": "sass index.scss dist/index.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@ui-components/tokens": "file:../../packages/tokens",
+    "sass": "^1.37.5"
+  }
+}
