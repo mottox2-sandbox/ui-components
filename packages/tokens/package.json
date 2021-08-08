@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "node -r esbuild-register src/build.js",
-    "postbuild": "tsc dist/*.ts --allowJs --outDir dist --declaration"
+    "postbuild": "tsc dist/*.ts --outDir dist --declaration"
   },
   "devDependencies": {
     "esbuild-register": "^2.6.0",
