@@ -10,7 +10,9 @@ type ContextValue = {
   theme: Theme;
 };
 
-const Context = React.createContext<ContextValue>(null as any as ContextValue);
+export const Context = React.createContext<ContextValue>(
+  null as any as ContextValue
+);
 
 export const ThemeProvider: React.FC<{
   theme: Theme;

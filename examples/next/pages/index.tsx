@@ -1,12 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Button, useProvider } from "@ui-components/react";
-import { colors } from "@ui-components/tokens";
+import { Button, useProvider, Context } from "@ui-components/react";
+import { useContext } from "react";
 
 export default function Home() {
-  const value = useProvider();
-  console.log(value);
+  const a = useContext(Context);
+  // const value = useProvider();
+  console.log(a);
   return (
     <div className={styles.container}>
       <Head>

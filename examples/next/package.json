@@ -8,8 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ui-components/react": "^0.0.1",
-    "@ui-components/tokens": "^0.0.1",
+    "@ui-components/react": "file:../../packages/react",
+    "@ui-components/tokens": "file:../../packages/tokens",
     "next": "11.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"

@@ -1,2 +1,2 @@
 export { Button } from "./button";
-export { ThemeProvider, useProvider } from "./theme";
+export { Context, ThemeProvider, useProvider } from "./theme";
