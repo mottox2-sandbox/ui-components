@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs';
+import { colors, sizes } from "@ui-components/tokens";
+
+<Meta title="Example/Tokens" />
+
+export class ExecuteJs extends React.Component {
+    render() {
+        return null;
+    }
+}
+
+# Tokens
+
+This library has design tokens.
+
+## Colors
+
+<pre>
+    {JSON.stringify(colors, null, 2)}
+</pre>
+
+## Sizes
+
+<pre>
+    {JSON.stringify(sizes, null, 2)}
+</pre>
+
+
+<ExecuteJs>{console.log(sizes)}</ExecuteJs>
